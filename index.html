@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <link rel="icon" type="image/png" href="img/logo.jpg.png"/>
+    <meta property="og:image" content="img/logo.jpg"/>
+    <meta property="og:title" content="Hotel Ronny | Alojamiento en Formosa Capital" />
+    <meta property="og:description" content="Tu lugar para quedarte en Formosa."/>
+    <title>Hotel Ronny | Alojamiento en Formosa Capital</title>
+
+<meta name="description" content="Hotel Ronny en Formosa capital. Habitaciones cómodas, excelente ubicación y atención personalizada para turistas y viajeros de negocios.">
+
+<meta name="keywords" content="hotel ronny, hotel en formosa, alojamiento formosa capital, hotel barato formosa">
+
+<meta name="author" content="Hotel Ronny">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        /* VUELTA AL COLOR AZUL ORIGINAL */
+                        "primary": "#137fec",
+                        "primary-dark": "#0c5bb5",
+                        
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#18212b",
+                        "accent-silver": "#e2e8f0",
+                        "whatsapp": "#25D366",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #101922; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        .booking-bar {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            animation-delay: 0.5s;
+        }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Estilo para los inputs de fecha en modo oscuro */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <div class="flex items-center gap-3">
+                <h1 class="text-white text-xl font-bold tracking-tight">Hotel Ronny</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#about">Nosotros</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#services">Servicios</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#attractions">Formosa</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#breakfast">Desayuno</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#rooms">Suites</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#contact">Ubicación</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5493704414572?text=Hola%20Hotel%20Ronny,%20quiero%20hacer%20una%20reserva." target="_blank" class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 px-6 rounded-lg transition-all shadow-[0_0_15px_rgba(19,127,236,0.3)] hover:shadow-[0_0_25px_rgba(19,127,236,0.5)] flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">chat</span>
+                    Reservar
+                </a>
+                <button class="md:hidden text-white p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-transparent to-background-dark"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="w-full h-full bg-cover bg-center animate-kenburns" data-alt="Luxury hotel lobby" style="background-image: url(img/ronnyfachada.2.png);">
+        </div>
+    </div>
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
+        <div class="space-y-4">
+            <span class="uppercase tracking-[0.2em] text-sm text-primary font-bold">Bienvenido a Formosa</span>
+            <h2 class="text-5xl md:text-7xl font-light tracking-tight text-white leading-[1.1]">
+                Hotel Ronny <br/>
+                <span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400"></span>
+            </h2>
+            <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                Tu lugar para quedarte.
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="relative z-40 -mt-24 px-4 booking-bar">
+    <div class="max-w-5xl mx-auto bg-surface-dark border border-white/10 rounded-2xl shadow-2xl p-4 md:p-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full md:w-auto flex-1">
+            <div class="relative bg-background-dark rounded-xl px-4 py-3 border border-white/5 hover:border-primary/50 transition-colors group cursor-pointer">
+                <label class="block text-xs uppercase text-gray-500 font-bold tracking-wider mb-1">Llegada</label>
+                <div class="flex items-center gap-2 text-white">
+                    <span class="material-symbols-outlined text-primary text-xl">calendar_month</span>
+                    <input type="date" id="checkin" class="bg-transparent border-none text-white text-sm font-medium focus:ring-0 p-0 w-full [color-scheme:dark]" placeholder="Fecha">
+                </div>
+            </div>
+            <div class="relative bg-background-dark rounded-xl px-4 py-3 border border-white/5 hover:border-primary/50 transition-colors group cursor-pointer">
+                <label class="block text-xs uppercase text-gray-500 font-bold tracking-wider mb-1">Salida</label>
+                <div class="flex items-center gap-2 text-white">
+                    <span class="material-symbols-outlined text-primary text-xl">calendar_month</span>
+                    <input type="date" id="checkout" class="bg-transparent border-none text-white text-sm font-medium focus:ring-0 p-0 w-full [color-scheme:dark]">
+                </div>
+            </div>
+            <div class="relative bg-background-dark rounded-xl px-4 py-3 border border-white/5 hover:border-primary/50 transition-colors group cursor-pointer">
+                <label class="block text-xs uppercase text-gray-500 font-bold tracking-wider mb-1">Personas</label>
+                <div class="flex items-center gap-2 text-white">
+                    <span class="material-symbols-outlined text-primary text-xl">group</span>
+                    <select id="guests" class="bg-transparent border-none text-white text-sm font-medium focus:ring-0 p-0 w-full cursor-pointer">
+                        <option value="1" class="text-black">1 Persona</option>
+                        <option value="2" class="text-black" selected>2 Personas</option>
+                        <option value="3" class="text-black">3 Personas</option>
+                        <option value="4" class="text-black">4 Personas</option>
+                        <option value="Grupal" class="text-black">Grupo (+5)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button onclick="enviarWhatsappReserva()" class="w-full md:w-auto bg-primary hover:bg-primary-dark text-white text-lg font-bold py-4 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(19,127,236,0.3)] hover:shadow-[0_0_30px_rgba(19,127,236,0.5)] flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined">search</span>
+            Buscar
+        </button>
+    </div>
+</div>
+
+<script>
+    function enviarWhatsappReserva() {
+        var checkin = document.getElementById("checkin").value;
+        var checkout = document.getElementById("checkout").value;
+        var guests = document.getElementById("guests").value;
+        var fechaLlegada = checkin ? checkin : "A confirmar";
+        var fechaSalida = checkout ? checkout : "A confirmar";
+        var mensaje = "Hola Hotel Ronny, estoy interesado en reservar.%0A" +
+                      " *Llegada:* " + fechaLlegada + "%0A" +
+                      "*Salida:* " + fechaSalida + "%0A" +
+                      " *Personas:* " + guests;
+        var url = "https://wa.me/5493704414572?text=" + mensaje;
+        window.open(url, '_blank');
+        
+    }
+    
+</script>
+
+
+<section class="pt-32 pb-24 px-6 bg-background-dark relative overflow-hidden" id="about">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8 relative z-10">
+            <div>
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Nuestra Historia</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">¿Quiénes somos?</h2>
+                <div class="h-1 w-20 bg-primary rounded-full"></div>
+            </div>
+            <div class="space-y-4 text-gray-400 leading-relaxed text-lg">
+                <p>
+                    <strong class="text-white">Hotel Ronny</strong> Este alojamiento está destinado principalmente al público corporativo, así como también a turistas que se encuentran de paso. Ofrece un ambiente cómodo y una ubicación próxima a la salida de la ciudad.
+                </p>
+                <p>
+                    Nuestro principal objetivo es brindar toda la comodidad y tranquilidad para que disfrute al máximo su estadía en esta hermosa provincia.
+                </p>
+            </div>
+        </div>
+        <div class="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+                 style="background-image: url('img/fondo.jpg.jpeg');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark/60 to-transparent"></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-surface-dark border-y border-white/5" id="services">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">Todo lo que necesitás para tu estadía</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Disfrutá de una experiencia completa con nuestros servicios exclusivos.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-background-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex items-start gap-6 group">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl">local_cafe</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Desayuno Incluido</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Comenzá tu día con nuestro desayuno continental completo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-background-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex items-start gap-6 group">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl">local_parking</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Estacionamiento</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Contamos con estacionamiento privado (cupos limitados).
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-background-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex items-start gap-6 group">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Recepción 24hs</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Nuestro equipo está disponible en cualquier momento.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-background-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex items-start gap-6 group">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-3xl">wifi</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">Wifi</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Contamos con internet por todo el hotel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background-dark" id="attractions">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">Descubrí Formosa</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Estamos cerca de los puntos más atractivos de la ciudad y te conectamos con las maravillas provinciales.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                    <span class="material-symbols-outlined text-blue-400 text-2xl">water_drop</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Costanera</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    A solo unas cuadras, disfrutá de paseos al aire libre, fuentes de aguas danzantes y la mejor vista al Río Paraguay.
+                </p>
+            </div>
+            <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
+                    <span class="material-symbols-outlined text-green-400 text-2xl">forest</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Reserva Laguna Oca</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Naturaleza pura a pocos minutos del centro. Ideal para caminatas, avistaje de aves y conectar con el entorno.
+                </p>
+            </div>
+            <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                    <span class="material-symbols-outlined text-purple-400 text-2xl">location_city</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Plaza San Martín</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Recorré el corazón de la ciudad, visitá la Catedral, museos históricos y la zona comercial, todo a pasos del hotel.
+                </p>
+            </div>
+            <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group relative">
+                <div class="absolute top-4 right-4 bg-yellow-500/10 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                    A 300 km
+                </div>
+                <div class="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-colors">
+                    <span class="material-symbols-outlined text-orange-400 text-2xl">landscape</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Bañado La Estrella</h4>
+                <p class="text-gray-400 text-sm leading-relaxed mb-2">
+                    Una de las 7 Maravillas Naturales de Argentina. El tercer humedal más grande de Sudamérica.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background-dark relative" id="breakfast">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                <span class="material-symbols-outlined text-primary text-3xl">bakery_dining</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-white">Nuestro Desayuno</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/desayuno.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Panadería">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/desayunao.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/caffetime.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Frutas">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                     <img src="img/jugos.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café servido">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-4 md:px-8 bg-surface-dark relative" id="rooms">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Alojamiento y Servicios</h3>
+            <p class="text-gray-400 max-w-2xl mx-auto">Espacios seleccionados diseñados para su comodidad y placer.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 1.jpg.jpeg');"></div>
+                    
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitacion Doble</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitacion%20Doble." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 2.jpg.png');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Triple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Triple."target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 3.jpg.png');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Doble</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Doble." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 4.jpg.png');"></div>
+                   
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Simple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Simple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 5.jpg.jpeg');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Triple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Triple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background-dark relative" id="contact">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="bg-surface-dark rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 flex flex-col lg:flex-row">
+            
+            <div class="p-10 lg:p-16 lg:w-5/12 flex flex-col justify-center relative z-10">
+                <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-blue-400 text-2xl">map</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mb-4">Ubicación Privilegiada</h3>
+                
+                <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    Ubicado sobre la Av. Dr. Luis Gutnisky, en una zona estratégica de la ciudad de Formosa, con fácil acceso a la Terminal de Ómnibus, al Aeropuerto Internacional de Formosa y a importantes comercios y servicios.
+                </p>
+                
+                <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-primary-light transition-colors group">
+                    Ver en Google Maps
+                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="relative lg:w-7/12 min-h-[300px] lg:min-h-full">
+                <img src="img/ubicaciom.jgp.png" alt="Mapa de Ubicación" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500">
+                
+                <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl flex items-start gap-3 max-w-[280px] animate-fade-in-up">
+                    <div class="mt-1">
+                        <span class="material-symbols-outlined text-red-500 text-2xl">location_on</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Dirección</span>
+                        <p class="text-gray-800 font-semibold text-sm leading-tight">
+                            Av. Dr. Luis Gutnisky 3906, P3600CMY Formosa
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-surface-dark border-t border-white/5 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Hotel Ronny</h4>
+
+                <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                    Hotel Ronny ofrece comodidad, atención personalizada y una ubicación estratégica
+                    en la ciudad de Formosa, ideal tanto para viajeros de negocios como para turistas.
+                </p>
+
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all" href="#">
+                        <span class="text-xs font-bold">FB</span>
+                    </a>
+
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all" href="#">
+                        <span class="text-xs font-bold">IG</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
+
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a class="hover:text-primary transition-colors" href="#about">Nuestra Historia</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#services">Servicios</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#attractions">Descubrir Formosa</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#breakfast">Desayuno</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#rooms">Habitaciones</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#contact">Ubicación</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
+
+                <ul class="space-y-3 text-sm text-gray-400">
+
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg">call</span>
+                        +54 3704 414572
+                    </li>
+
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                        Formosa, Argentina
+                    </li>
+
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg">schedule</span>
+                        Recepción 24 horas
+                    </li>
+
+                    <li>
+                        <a href="https://wa.me/5493704414572" class="hover:text-primary transition-colors">
+                            Contactar por WhatsApp
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/5 pt-8 flex justify-center items-center">
+            <p class="text-gray-600 text-sm">
+                © 2026 Hotel Ronny · Todos los derechos reservados
+            </p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/5493704414572?text=Hola,%20tengo%20una%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300 animate-bounce-slow group">
+    <svg class="w-9 h-9 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+    <div class="absolute right-full mr-4 bg-white text-gray-800 text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
+        ¡Escribinos!
+    </div>
+</a>
+
+</body>
+</html>
