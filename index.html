@@ -10,11 +10,9 @@
     <meta property="og:description" content="Tu lugar para quedarte en Formosa."/>
     <title>Hotel Ronny | Alojamiento en Formosa Capital</title>
 
-<meta name="description" content="Hotel Ronny en Formosa capital. Habitaciones cómodas, excelente ubicación y atención personalizada para turistas y viajeros de negocios.">
-
-<meta name="keywords" content="hotel ronny, hotel en formosa, alojamiento formosa capital, hotel barato formosa">
-
-<meta name="author" content="Hotel Ronny">
+    <meta name="description" content="Hotel Ronny en Formosa capital. Habitaciones cómodas, excelente ubicación y atención personalizada para turistas y viajeros de negocios.">
+    <meta name="keywords" content="hotel ronny, hotel en formosa, alojamiento formosa capital, hotel barato formosa">
+    <meta name="author" content="Hotel Ronny">
 
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -27,10 +25,8 @@
             theme: {
                 extend: {
                     colors: {
-                        /* VUELTA AL COLOR AZUL ORIGINAL */
                         "primary": "#137fec",
                         "primary-dark": "#0c5bb5",
-                        
                         "background-light": "#f6f7f8",
                         "background-dark": "#101922",
                         "surface-dark": "#18212b",
@@ -41,9 +37,14 @@
                         "display": ["Plus Jakarta Sans", "sans-serif"],
                         "body": ["Noto Sans", "sans-serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
                     animation: {
-                        'bounce-slow': 'bounce 3s infinite',
+                        "bounce-slow": "bounce 3s infinite",
                     }
                 },
             },
@@ -62,14 +63,116 @@
             transform: translateY(20px);
             animation-delay: 0.5s;
         }
+
         @keyframes slideUp {
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Estilo para los inputs de fecha en modo oscuro */
         input[type="date"]::-webkit-calendar-picker-indicator {
             filter: invert(1);
             cursor: pointer;
+        }
+
+        .galeria-item {
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .galeria-img {
+            cursor: pointer;
+        }
+
+        .filtro-btn.activo {
+            background: #137fec;
+            border-color: #137fec;
+            color: white;
+            box-shadow: 0 0 20px rgba(19,127,236,0.25);
+        }
+
+        .modal-galeria {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-galeria.activo {
+            display: flex;
+        }
+
+        .modal-contenido {
+            max-width: 92%;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.45);
+        }
+
+        .cerrar-modal {
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            font-size: 42px;
+            line-height: 1;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10001;
+        }
+
+        .btn-modal-galeria {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: white;
+            width: 52px;
+            height: 52px;
+            border-radius: 9999px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s ease;
+            z-index: 10001;
+            backdrop-filter: blur(6px);
+        }
+
+        .btn-modal-galeria:hover {
+            background: rgba(255,255,255,0.22);
+        }
+
+        .btn-prev {
+            left: 20px;
+        }
+
+        .btn-next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .btn-modal-galeria {
+                width: 44px;
+                height: 44px;
+            }
+
+            .btn-prev {
+                left: 10px;
+            }
+
+            .btn-next {
+                right: 10px;
+            }
+
+            .cerrar-modal {
+                top: 14px;
+                right: 18px;
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -82,15 +185,15 @@
                 <h1 class="text-white text-xl font-bold tracking-tight">Hotel Ronny</h1>
             </div>
             <div class="hidden md:flex items-center gap-8">
-                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#about">Nosotros</a>
-                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#services">Servicios</a>
-                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#attractions">Formosa</a>
-                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#breakfast">Desayuno</a>
-                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#rooms">Suites</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#rooms">Alojamiento</a>
                 <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#contact">Ubicación</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#breakfast">Desayuno</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#gallery">Galería</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#services">Servicios</a>
+                <a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#attractions">Conocé Formosa</a>
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://wa.me/5493704414572?text=Hola%20Hotel%20Ronny,%20quiero%20hacer%20una%20reserva." target="_blank" class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 px-6 rounded-lg transition-all shadow-[0_0_15px_rgba(19,127,236,0.3)] hover:shadow-[0_0_25px_rgba(19,127,236,0.5)] flex items-center gap-2">
+                <a href="https://wa.me/5493704950385?text=Hola%20Hotel%20Ronny,%20quiero%20hacer%20una%20reserva." target="_blank" class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 px-6 rounded-lg transition-all shadow-[0_0_15px_rgba(19,127,236,0.3)] hover:shadow-[0_0_25px_rgba(19,127,236,0.5)] flex items-center gap-2">
                     <span class="material-symbols-outlined text-lg">chat</span>
                     Reservar
                 </a>
@@ -106,8 +209,7 @@
     <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-transparent to-background-dark"></div>
         <div class="absolute inset-0 bg-black/40"></div>
-        <div class="w-full h-full bg-cover bg-center animate-kenburns" data-alt="Luxury hotel lobby" style="background-image: url(img/ronnyfachada.2.png);">
-        </div>
+        <div class="w-full h-full bg-cover bg-center animate-kenburns" data-alt="Luxury hotel lobby" style="background-image: url(img/fachada2.jpeg);"></div>
     </div>
     
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
@@ -173,15 +275,12 @@
                       " *Llegada:* " + fechaLlegada + "%0A" +
                       "*Salida:* " + fechaSalida + "%0A" +
                       " *Personas:* " + guests;
-        var url = "https://wa.me/5493704414572?text=" + mensaje;
+        var url = "https://wa.me/5493704950385?text=" + mensaje;
         window.open(url, '_blank');
-        
     }
-    
 </script>
 
-
-<section class="pt-32 pb-24 px-6 bg-background-dark relative overflow-hidden" id="about">
+<div class="pt-24">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="space-y-8 relative z-10">
             <div>
@@ -191,18 +290,230 @@
             </div>
             <div class="space-y-4 text-gray-400 leading-relaxed text-lg">
                 <p>
-                    <strong class="text-white">Hotel Ronny</strong> Este alojamiento está destinado principalmente al público corporativo, así como también a turistas que se encuentran de paso. Ofrece un ambiente cómodo y una ubicación próxima a la salida de la ciudad.
+                    <strong class="text-white">Hotel Ronny</strong> está destinado principalmente al público corporativo, así como también a turistas que se encuentran de paso. Ofrece un ambiente cómodo y una ubicación próxima a la salida de la ciudad.
                 </p>
                 <p>
                     Nuestro principal objetivo es brindar toda la comodidad y tranquilidad para que disfrute al máximo su estadía en esta hermosa provincia.
                 </p>
             </div>
         </div>
+
         <div class="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
-                 style="background-image: url('img/fondo.jpg.jpeg');">
-            </div>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('img/fondo.jpg.jpeg');"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-background-dark/60 to-transparent"></div>
+        </div>
+    </div>
+</div>
+
+<section class="py-20 px-4 md:px-8 bg-surface-dark relative" id="rooms">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Alojamiento y Servicios</h3>
+            <p class="text-gray-400 max-w-2xl mx-auto">Espacios seleccionados diseñados para su comodidad y placer.</p>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-2">
+                Todas las habitaciones incluyen su respectivo baño privado.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 4.jpg.png');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Simple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704950385?text=Hola,%20me%20interesa%20la%20Habitacion%20Simple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/habitación triple..jpeg');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Doble</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704950385?text=Hola,%20me%20interesa%20la%20Habitación%20Doble." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 3.jpg.png');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Triple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704950385?text=Hola,%20me%20interesa%20la%20Habitación%20Triple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="h-64 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitación cuadruple..jpeg');"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-bold text-white mb-2">Habitación Cuádruple</h4>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
+                    <a href="https://wa.me/5493704950385?text=Hola,%20me%20interesa%20la%20Habitación%20Cuádruple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background-dark relative" id="contact">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="bg-surface-dark rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 flex flex-col lg:flex-row">
+            <div class="p-10 lg:p-16 lg:w-5/12 flex flex-col justify-center relative z-10">
+                <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-blue-400 text-2xl">map</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mb-4">Ubicación</h3>
+                
+                <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    Ubicado sobre la Av. Dr. Luis Gutnisky, en una zona estratégica de la ciudad de Formosa, con fácil acceso a la Terminal de Ómnibus, al Aeropuerto Internacional de Formosa y a importantes comercios y servicios.
+                </p>
+                
+                <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm transition-colors group">
+                    Ver en Google Maps
+                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="relative lg:w-7/12 min-h-[300px] lg:min-h-full">
+                <img src="img/ubicaciom.jgp.png" alt="Mapa de Ubicación" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500">
+                
+                <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl flex items-start gap-3 max-w-[280px] animate-fade-in-up">
+                    <div class="mt-1">
+                        <span class="material-symbols-outlined text-red-500 text-2xl">location_on</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Dirección</span>
+                        <p class="text-gray-800 font-semibold text-sm leading-tight">
+                            Av. Dr. Luis Gutnisky 3906, P3600CMY Formosa
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-background-dark relative" id="breakfast">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                <span class="material-symbols-outlined text-primary text-3xl">bakery_dining</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-white">Nuestro Desayuno</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/desayuno.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Panadería">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/desayunao.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/caffetime.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Frutas">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
+                    <img src="img/jugos.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café servido">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-background-dark border-t border-b border-white/10" id="gallery">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Galería</span>
+            <h2 class="text-4xl font-bold text-white mb-4"></h2>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <button class="filtro-btn activo text-white border border-white/20 px-5 py-2.5 rounded-lg transition hover:bg-primary hover:border-primary" data-filtro="todo">
+                    Todo
+                </button>
+                <button class="filtro-btn text-white border border-white/20 px-5 py-2.5 rounded-lg transition hover:bg-primary hover:border-primary" data-filtro="habitacion">
+                    Habitaciones
+                </button>
+                <button class="filtro-btn text-white border border-white/20 px-5 py-2.5 rounded-lg transition hover:bg-primary hover:border-primary" data-filtro="hotel">
+                    Hotel
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gridGaleria">
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/foto.jpeg" alt="Frente del hotel con grupo" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/frente.jpeg" alt="Fachada del Hotel Ronny" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/jugadores.jpeg" alt="Comedor del hotel con huéspedes" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/jugadoresfrente.jpeg" alt="Exterior del hotel con grupo" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/reunion.jpeg" alt="Salón del hotel" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="hotel">
+                <img src="img/atardecer.jpeg" alt="Vista del hotel al atardecer" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/Habitacion 5.jpg.jpeg" alt="Habitación 1" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/Habitacion 2.jpg.png" alt="Habitación 2" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/Habitacion 1.jpg.jpeg" alt="Habitación 3" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/baño1.jpeg" alt="Baño 1" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/baño 2.jpeg" alt="Baño 2" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
+
+            <div class="galeria-item relative overflow-hidden rounded-2xl border border-white/10 shadow-lg group" data-categoria="habitacion">
+                <img src="img/baño 3.jpeg" alt="Baño 3" class="galeria-img w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -272,211 +583,57 @@
             <h2 class="text-4xl font-bold text-white mb-4">Descubrí Formosa</h2>
             <p class="text-gray-400 max-w-2xl mx-auto">Estamos cerca de los puntos más atractivos de la ciudad y te conectamos con las maravillas provinciales.</p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                 <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
                     <span class="material-symbols-outlined text-blue-400 text-2xl">water_drop</span>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-3">Costanera</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    A solo unas cuadras, disfrutá de paseos al aire libre, fuentes de aguas danzantes y la mejor vista al Río Paraguay.
-                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">Aproximadamente a 3-4 km de la costanera de Formosa; disfrutá de paseos al aire libre, fuentes de aguas danzantes y la mejor vista al Río Paraguay.</p>
             </div>
+
             <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                 <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
                     <span class="material-symbols-outlined text-green-400 text-2xl">forest</span>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-3">Reserva Laguna Oca</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Naturaleza pura a pocos minutos del centro. Ideal para caminatas, avistaje de aves y conectar con el entorno.
-                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">Naturaleza pura a solo 8 km del centro (aprox. 10–15 minutos en auto). Ideal para caminatas, avistaje de aves y disfrutar de un entorno único rodeado de flora y fauna autóctona.</p>
             </div>
+
             <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                 <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
                     <span class="material-symbols-outlined text-purple-400 text-2xl">location_city</span>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-3">Plaza San Martín</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Recorré el corazón de la ciudad, visitá la Catedral, museos históricos y la zona comercial, todo a pasos del hotel.
-                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">Recorré el corazón de la ciudad, visitá la Catedral, museos históricos y la zona comercial, todo a pasos del hotel.</p>
             </div>
+
             <div class="bg-surface-dark p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group relative">
-                <div class="absolute top-4 right-4 bg-yellow-500/10 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                    A 300 km
-                </div>
+                <div class="absolute top-4 right-4 bg-yellow-500/10 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">A 300 km</div>
                 <div class="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-colors">
                     <span class="material-symbols-outlined text-orange-400 text-2xl">landscape</span>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-3">Bañado La Estrella</h4>
-                <p class="text-gray-400 text-sm leading-relaxed mb-2">
-                    Una de las 7 Maravillas Naturales de Argentina. El tercer humedal más grande de Sudamérica.
-                </p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-2">Una de las 7 Maravillas Naturales de Argentina. El tercer humedal más grande de Sudamérica.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-24 bg-background-dark relative" id="breakfast">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
-                <span class="material-symbols-outlined text-primary text-3xl">bakery_dining</span>
-                <h3 class="text-2xl md:text-3xl font-bold text-white">Nuestro Desayuno</h3>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
-                    <img src="img/desayuno.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Panadería">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
-                    <img src="img/desayunao.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
-                    <img src="img/caffetime.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Frutas">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-lg">
-                     <img src="img/jugos.jpg.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Café servido">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 px-4 md:px-8 bg-surface-dark relative" id="rooms">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Alojamiento y Servicios</h3>
-            <p class="text-gray-400 max-w-2xl mx-auto">Espacios seleccionados diseñados para su comodidad y placer.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="h-64 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 1.jpg.jpeg');"></div>
-                    
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-bold text-white mb-2">Habitacion Doble</h4>
-                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
-                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitacion%20Doble." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="h-64 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 2.jpg.png');"></div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-bold text-white mb-2">Habitación Triple</h4>
-                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
-                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Triple."target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="h-64 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 3.jpg.png');"></div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-bold text-white mb-2">Habitación Doble</h4>
-                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
-                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Doble." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="h-64 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 4.jpg.png');"></div>
-                   
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-bold text-white mb-2">Habitación Simple</h4>
-                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
-                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Simple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="group bg-background-dark rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="h-64 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('img/Habitacion 5.jpg.jpeg');"></div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-bold text-white mb-2">Habitación Triple</h4>
-                    <p class="text-gray-400 text-sm mb-4 line-clamp-2"></p>
-                    <a href="https://wa.me/5493704414572?text=Hola,%20me%20interesa%20la%20Habitación%20Triple." target="_blank" class="text-primary font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                        Consultar <span class="material-symbols-outlined text-sm">chat</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-24 bg-background-dark relative" id="contact">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="bg-surface-dark rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 flex flex-col lg:flex-row">
-            
-            <div class="p-10 lg:p-16 lg:w-5/12 flex flex-col justify-center relative z-10">
-                <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
-                    <span class="material-symbols-outlined text-blue-400 text-2xl">map</span>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-white mb-4">Ubicación Privilegiada</h3>
-                
-                <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                    Ubicado sobre la Av. Dr. Luis Gutnisky, en una zona estratégica de la ciudad de Formosa, con fácil acceso a la Terminal de Ómnibus, al Aeropuerto Internacional de Formosa y a importantes comercios y servicios.
-                </p>
-                
-                <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-primary-light transition-colors group">
-                    Ver en Google Maps
-                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
-            </div>
-
-            <div class="relative lg:w-7/12 min-h-[300px] lg:min-h-full">
-                <img src="img/ubicaciom.jgp.png" alt="Mapa de Ubicación" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500">
-                
-                <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl flex items-start gap-3 max-w-[280px] animate-fade-in-up">
-                    <div class="mt-1">
-                        <span class="material-symbols-outlined text-red-500 text-2xl">location_on</span>
-                    </div>
-                    <div>
-                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Dirección</span>
-                        <p class="text-gray-800 font-semibold text-sm leading-tight">
-                            Av. Dr. Luis Gutnisky 3906, P3600CMY Formosa
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="bg-surface-dark border-t border-white/5 pt-16 pb-8">
+<footer class="bg-surface-dark border-t border-white/5 pt-16 pb-8 mt-12">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-
             <div>
                 <h4 class="text-white font-bold text-lg mb-6">Hotel Ronny</h4>
-
                 <p class="text-gray-400 text-sm mb-6 leading-relaxed">
                     Hotel Ronny ofrece comodidad, atención personalizada y una ubicación estratégica
                     en la ciudad de Formosa, ideal tanto para viajeros de negocios como para turistas.
                 </p>
-
                 <div class="flex gap-4">
                     <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all" href="#">
                         <span class="text-xs font-bold">FB</span>
                     </a>
-
                     <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all" href="#">
                         <span class="text-xs font-bold">IG</span>
                     </a>
@@ -485,46 +642,38 @@
 
             <div>
                 <h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
-
                 <ul class="space-y-3 text-sm text-gray-400">
-                    <li><a class="hover:text-primary transition-colors" href="#about">Nuestra Historia</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#services">Servicios</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#attractions">Descubrir Formosa</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#breakfast">Desayuno</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#rooms">Habitaciones</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#rooms">Alojamiento</a></li>
                     <li><a class="hover:text-primary transition-colors" href="#contact">Ubicación</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#breakfast">Desayuno</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#gallery">Galería</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#services">Servicios</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#attractions">Conocé Formosa</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
-
                 <ul class="space-y-3 text-sm text-gray-400">
-
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-lg">call</span>
-                        +54 3704 414572
+                        +54 3704 950385
                     </li>
-
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-lg">location_on</span>
                         Formosa, Argentina
                     </li>
-
                     <li class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary text-lg">schedule</span>
                         Recepción 24 horas
                     </li>
-
                     <li>
-                        <a href="https://wa.me/5493704414572" class="hover:text-primary transition-colors">
+                        <a href="https://wa.me/5493704950385" class="hover:text-primary transition-colors">
                             Contactar por WhatsApp
                         </a>
                     </li>
-
                 </ul>
             </div>
-
         </div>
 
         <div class="border-t border-white/5 pt-8 flex justify-center items-center">
@@ -535,7 +684,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5493704414572?text=Hola,%20tengo%20una%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300 animate-bounce-slow group">
+<a href="https://wa.me/5493704950385?text=Hola,%20tengo%20una%20consulta." target="_blank" class="fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300 animate-bounce-slow group">
     <svg class="w-9 h-9 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
     </svg>
@@ -543,6 +692,108 @@
         ¡Escribinos!
     </div>
 </a>
+
+<div class="modal-galeria" id="modalGaleria">
+    <span class="cerrar-modal" id="cerrarModal">&times;</span>
+
+    <button class="btn-modal-galeria btn-prev" id="prev" aria-label="Imagen anterior">
+        <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+
+    <img class="modal-contenido" id="imgModal" src="" alt="Imagen ampliada de la galería">
+
+    <button class="btn-modal-galeria btn-next" id="next" aria-label="Imagen siguiente">
+        <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+</div>
+
+<script>
+    const imagenesGaleria = document.querySelectorAll(".galeria-img");
+    const modalGaleria = document.getElementById("modalGaleria");
+    const imgModal = document.getElementById("imgModal");
+    const cerrarModal = document.getElementById("cerrarModal");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const botonesFiltro = document.querySelectorAll(".filtro-btn");
+    const itemsGaleria = document.querySelectorAll(".galeria-item");
+
+    let indiceActual = 0;
+
+    function abrirModal(index) {
+        indiceActual = index;
+        imgModal.src = imagenesGaleria[indiceActual].src;
+        imgModal.alt = imagenesGaleria[indiceActual].alt;
+        modalGaleria.classList.add("activo");
+        document.body.style.overflow = "hidden";
+    }
+
+    function cerrarGaleria() {
+        modalGaleria.classList.remove("activo");
+        document.body.style.overflow = "";
+    }
+
+    function mostrarSiguiente() {
+        indiceActual = (indiceActual + 1) % imagenesGaleria.length;
+        imgModal.src = imagenesGaleria[indiceActual].src;
+        imgModal.alt = imagenesGaleria[indiceActual].alt;
+    }
+
+    function mostrarAnterior() {
+        indiceActual = (indiceActual - 1 + imagenesGaleria.length) % imagenesGaleria.length;
+        imgModal.src = imagenesGaleria[indiceActual].src;
+        imgModal.alt = imagenesGaleria[indiceActual].alt;
+    }
+
+    imagenesGaleria.forEach((img, index) => {
+        img.addEventListener("click", () => abrirModal(index));
+    });
+
+    cerrarModal.addEventListener("click", cerrarGaleria);
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mostrarSiguiente();
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mostrarAnterior();
+    });
+
+    modalGaleria.addEventListener("click", (e) => {
+        if (e.target === modalGaleria) {
+            cerrarGaleria();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!modalGaleria.classList.contains("activo")) return;
+
+        if (e.key === "Escape") cerrarGaleria();
+        if (e.key === "ArrowRight") mostrarSiguiente();
+        if (e.key === "ArrowLeft") mostrarAnterior();
+    });
+
+    botonesFiltro.forEach((boton) => {
+        boton.addEventListener("click", () => {
+            const filtro = boton.getAttribute("data-filtro");
+
+            botonesFiltro.forEach((b) => b.classList.remove("activo"));
+            boton.classList.add("activo");
+
+            itemsGaleria.forEach((item) => {
+                const categoria = item.getAttribute("data-categoria");
+
+                if (filtro === "todo" || categoria === filtro) {
+                    item.style.display = "block";
+                    item.style.opacity = "1";
+                    item.style.transform = "scale(1)";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
